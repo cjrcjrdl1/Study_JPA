@@ -19,16 +19,7 @@ public class JpaMain {
         tx.begin();
 
         try {
-            Order order = new Order();
-            em.persist(order);
-            Member member = new Member();
-            member.setName("dd");
-            em.persist(member);
-            order.setMember(member);
 
-//            OrderItem orderItem = new OrderItem();
-//
-//            orderItem.setOrder(order);
 
             tx.commit();
         } catch (Exception e) {
