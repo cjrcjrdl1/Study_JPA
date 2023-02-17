@@ -13,12 +13,16 @@ public class Member {
     @Column(name = "USERNAME")
     private String username;
 
-//    @Column(name = "TEAM_ID")
-//    private Long teamId;
-
     @ManyToOne
     @JoinColumn(name = "TEAM_ID")
     private Team team;
+
+    public Member() {
+    }
+
+    @OneToOne
+    @JoinColumn(name = "LOCKER_ID")
+    private Locker locker;
 
     public Long getId() {
         return id;
@@ -36,17 +40,11 @@ public class Member {
         this.username = username;
     }
 
-    public void setTeam(Team team) {
-        this.team = team;
-    }
+
 
     public Team getTeam() {
         return team;
     }
 
-    public void changeTeam(Team team) {
-        this.team = team;
 
-        team.getMembers().add(this);
-    }
 }

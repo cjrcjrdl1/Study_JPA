@@ -1,5 +1,6 @@
 package jpabook.jpabook;
 
+import jpabook.jpabook.jpashop.domain.Member;
 import jpabook.jpabook.jpashop.domain.Order;
 import jpabook.jpabook.jpashop.domain.OrderItem;
 
@@ -20,12 +21,14 @@ public class JpaMain {
         try {
             Order order = new Order();
             em.persist(order);
-            OrderItem orderItem = new OrderItem();
+            Member member = new Member();
+            member.setName("dd");
+            em.persist(member);
+            order.setMember(member);
 
-            orderItem.setOrder(order);
-
-
-            em.persist(orderItem);
+//            OrderItem orderItem = new OrderItem();
+//
+//            orderItem.setOrder(order);
 
             tx.commit();
         } catch (Exception e) {
