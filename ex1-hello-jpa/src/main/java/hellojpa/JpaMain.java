@@ -17,7 +17,7 @@ public class JpaMain {
         tx.begin();
 
         try {
-            Movie movie = new Movie();
+            Member member = new Member();
 
 
             tx.commit();
