@@ -12,6 +12,18 @@ public class Address {
     public Address() {
     }
 
+    private void setCity(String city) {
+        this.city = city;
+    }
+
+    private void setStreet(String street) {
+        this.street = street;
+    }
+
+    private void setZipcode(String zipcode) {
+        this.zipcode = zipcode;
+    }
+
     public Address(String city, String street, String zipcode) {
         this.city = city;
         this.street = street;
@@ -22,23 +34,11 @@ public class Address {
         return city;
     }
 
-    public void setCity(String city) {
-        this.city = city;
-    }
-
     public String getStreet() {
         return street;
     }
 
-    public void setStreet(String street) {
-        this.street = street;
-    }
-
     public String getZipcode() {
         return zipcode;
-    }
-
-    public void setZipcode(String zipcode) {
-        this.zipcode = zipcode;
     }
 }
