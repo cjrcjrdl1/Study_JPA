@@ -23,10 +23,13 @@ public class JpaMain {
             em.flush();
             em.clear();
 
-            em.createQuery("select m from Member m inner join m.team t", Member.class)
-                    .setFirstResult(0)
-                    .setMaxResults(10)
+            List<Member> resultList = em.createNamedQuery("Member.findByUsername", Member.class)
+                    .setParameter("username", "회원1")
                     .getResultList();
+
+            for (Member member1 : resultList) {
+                System.out.println("member1 = " + member1);
+            }
 
             tx.commit();
         } catch (Exception e) {
