@@ -23,7 +23,7 @@ public class JpaMain {
             em.flush();
             em.clear();
 
-            em.createQuery("select m from Member m order by m.age desc", Member.class)
+            em.createQuery("select m from Member m inner join m.team t", Member.class)
                     .setFirstResult(0)
                     .setMaxResults(10)
                     .getResultList();
