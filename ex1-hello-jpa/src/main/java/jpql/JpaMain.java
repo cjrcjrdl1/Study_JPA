@@ -20,16 +20,15 @@ public class JpaMain {
             member.setAge(10);
             em.persist(member);
 
-            em.flush();
-            em.clear();
+//            em.flush();
+//            em.clear();
 
-            List<Member> resultList = em.createNamedQuery("Member.findByUsername", Member.class)
-                    .setParameter("username", "회원1")
-                    .getResultList();
+            int resultCount = em.createQuery("update Member m set m.age = 20")
+                    .executeUpdate();
 
-            for (Member member1 : resultList) {
-                System.out.println("member1 = " + member1);
-            }
+            System.out.println("resultCount = " + resultCount);
+
+            System.out.println("member = " + member.getAge()); // 0
 
             tx.commit();
         } catch (Exception e) {
